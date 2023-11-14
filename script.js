@@ -1,5 +1,5 @@
-let MAPWIDTH = 2
-let MAPHEIGHT = 4
+let MAPWIDTH = 20
+let MAPHEIGHT = 40
 let parameters_form = document.getElementById("parameters");
 let save_form = document.getElementById("save");
 let load_room = document.getElementById("load");
