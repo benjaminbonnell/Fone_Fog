@@ -2,7 +2,9 @@ let MAPWIDTH = 20
 let MAPHEIGHT = 40
 let parameters_form = document.getElementById("parameters");
 let save_form = document.getElementById("save");
-console.log("hahahahah")
+let room_names = []
+let room_data = []
+let rooms_LIST = document.getElementById("rooms_list")
 
 document.getElementById("map_height").value = MAPHEIGHT;
 document.getElementById("map_width").value = MAPWIDTH;
@@ -24,6 +26,10 @@ parameters_form.addEventListener("submit", (e) => {
 save_form.addEventListener("submit", (e) => {
     e.preventDefault(); // prevent the form from refreshing the page
     saveGrid();
+    var ListItem = document.createElement("li")
+    ListItem.innerText = room_names[room_names.length - 1]
+    rooms_LIST.appendChild(ListItem)
+
 });
 
 function createGrid(height, width) {
@@ -51,6 +57,7 @@ function createGrid(height, width) {
 }
 
 function saveGrid(){
+    let roomname = document.getElementById("savename").value
     let totalBoxes = document.getElementsByClassName("box");
     console.log(totalBoxes)
     let map_height = Number(MAPHEIGHT)
@@ -70,7 +77,9 @@ function saveGrid(){
         }
         map_array.push(thisRow)
     }
-    console.log(map_array)
+    room_names.push(roomname)
+    room_data.push(map_array)
+    console.log(roomname + map_array)
 }
 
 //gotem
